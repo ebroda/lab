@@ -17,7 +17,7 @@ Mattermost
 
 .. tag_list::
 
-`Mattermost`_ is an open-source, self-hostable online chat service written in Go and JavaScript.
+`Mattermost`_ is an open-source, self-hosted online chat service written in Go and JavaScript.
 
 ----
 
@@ -152,6 +152,12 @@ Further customisation
 ---------------------
 
 To further customise your configuration, you can open the ``system console`` in your browser and adapt any settings to your wishes. Setting the SMTP server is a good idea.
+
+Updates
+-------
+
+Stop your service, backup your ``/home/isabell/mattermost/client``, ``/home/isabell/mattermost/config`` and ``/home/isabell/mattermost/plugins`` directory and rename/delete your ``/home/isabell/mattermost`` directory.
+Proceed with the installation steps and restore the ``client``, ``config`` and ``plugins`` directories. Then you can start your service again.
 
 .. _`Mattermost website`: https://mattermost.com/download/
 
