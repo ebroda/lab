@@ -1,6 +1,6 @@
 .. highlight:: console
 
-.. author:: Thomas Kammerer <https://kammerer.tk/>
+.. author:: Thomas Johnson <https://johnson.tj/>
 
 .. tag:: lang-nodejs
 .. tag:: web
@@ -38,7 +38,7 @@ We're using :manual:`Node.js <lang-nodejs>` in the latest version:
 .. code-block:: console
 
  [isabell@stardust ~]$ uberspace tools version show node
- Using 'Node.js' version: '12'
+ Using 'Node.js' version: '20'
  [isabell@stardust ~]$
 
 Your website domain needs to be set up:
@@ -115,6 +115,6 @@ Stop your service and repeat the installation step.
 
 ----
 
-Tested with MagicMirror² v2.10.1 and Uberspace 7.5.1
+Tested with MagicMirror² v2.25.0 and Uberspace 7.15.6
 
 .. author_list::

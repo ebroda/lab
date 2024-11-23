@@ -70,28 +70,24 @@ Finally, create the mysql database for grafana:
 Installation
 ============
 
-Step 1
-------
-
 Find the latest version of grafana_ for the platform ``linux`` from the `download page <https://grafana.com/grafana/download?platform=linux>`_, download and extract it and enter the extracted directory:
 
 ::
 
- [isabell@stardust ~]$ wget https://dl.grafana.com/oss/release/grafana-6.3.5.linux-amd64.tar.gz
- [isabell@stardust ~]$ tar xvzf grafana-6.3.5.amd64.tar.gz
- [isabell@stardust ~]$ cd grafana-6.3.5.linux-amd64
- [isabell@stardust grafana-6.3.5.linux-amd64]$
-
-Step 2
-------
+ [isabell@stardust ~]$ wget https://dl.grafana.com/oss/release/grafana-10.0.5.linux-amd64.tar.gz
+ [isabell@stardust ~]$ tar xvzf grafana-10.0.5.linux-amd64.tar.gz
+ [isabell@stardust ~]$ cd grafana-10.0.5
+ [isabell@stardust grafana-10.0.5]$
 
 Move the binary to ``~/bin`` and the default configuration and html files to ``~/usr/share/grafana``.
 
 ::
 
- [isabell@stardust grafana-6.3.5.linux-amd64]$ mv bin/grafana-server ~/bin/
- [isabell@stardust grafana-6.3.5.linux-amd64]$ mv conf public ~/usr/share/grafana
- [isabell@stardust grafana-6.3.5.linux-amd64]$
+ [isabell@stardust grafana-10.0.5]$ mv bin/grafana-server ~/bin/
+ [isabell@stardust grafana-10.0.5]$ mv bin/grafana ~/bin/
+ [isabell@stardust grafana-10.0.5]$ mv bin/grafana-cli ~/bin/
+ [isabell@stardust grafana-10.0.5]$ mv conf public ~/usr/share/grafana
+ [isabell@stardust grafana-10.0.5]$
 
 Configuration
 =============
@@ -173,6 +169,6 @@ Change the default password which we configured in the configuration file ``~/et
 
 ----
 
-Tested with grafana_ 6.3.5, Uberspace 7.3.6.1
+Tested with grafana_ 10.0.5, Uberspace 7.15.4
 
 .. author_list::

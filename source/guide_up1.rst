@@ -38,7 +38,7 @@ We're using :manual:`Node.js <lang-nodejs>` in the stable version 8:
 ::
 
  [isabell@stardust ~]$ uberspace tools version show node
- Using 'Node.js' version: '8'
+ Using 'Node.js' version: '18'
  [isabell@stardust ~]$
 
 We will need to update the Node Packet Manager npm:
@@ -46,11 +46,11 @@ We will need to update the Node Packet Manager npm:
 ::
 
   [isabell@stardust ~]$ npm install npm@latest -g
-  + npm@6.4.1
+  + npm@10.2.4
   updated 1 package in 14.629s
   [isabell@stardust ~]$ hash -r
   [isabell@stardust ~]$ npm --version
-  6.4.1
+  10.2.4
   [isabell@stardust ~]$
 
 This should return a version from ``6.0.0`` upwards.
@@ -131,7 +131,7 @@ Copy the example settings files to create your own configuration:
 
 Now edit ``~/up1/server/server.conf`` and set a random string for ``api_key`` and ``delete_key``:
 
-.. note:: You can use the following code, for example, to create a random string: ``[isabell@stardust ~]$ head /dev/urandom | tr -dc A-Za-z0-9 | head -c 20 ; echo ''``
+.. note:: You can use the following code, for example, to create a random string: ``pwgen 32 1``
 
 .. code-block:: none
  :emphasize-lines: 2,3,13

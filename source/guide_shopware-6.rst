@@ -39,12 +39,12 @@ All relevant legal information can be found here
 Prerequisites
 =============
 
-We're using PHP in the stable version 7.2:
+We're using PHP in the stable version 8.1:
 
 ::
 
  [isabell@stardust ~]$ uberspace tools version show php
- Using 'PHP' version: '7.2'
+ Using 'PHP' version: '8.1'
  [isabell@stardust ~]$
 
 .. include:: includes/my-print-defaults.rst
@@ -66,7 +66,7 @@ URL with the one you just copied.
  :emphasize-lines: 2
 
  [isabell@stardust ~]$ cd /var/www/virtual/$USER/
- [isabell@stardust isabell]$ curl -o shopware.zip https://releases.shopware.com/sw6/install_6.0.0_ea2_1571125323.zip
+ [isabell@stardust isabell]$ curl -o shopware.zip https://releases.shopware.com/sw6/install_v6.4.17.2_4d2c85fb448571fa4f30edce635f33a67dda1d76.zip
  [isabell@stardust isabell]$ unzip -d shopware shopware.zip
  [isabell@stardust isabell]$ rm shopware.zip
  [isabell@stardust isabell]$
@@ -74,12 +74,9 @@ URL with the one you just copied.
 Since Shopware uses the sub directory public/ as the :manual:`DocumentRoot <web-documentroot>`,
 you need to remove your DocumentRoot and create a symlink to the shopware/public/ directory:
 
-.. warning:: Make sure ``html`` is empty before deleting it. If there are any files you want to keep
-   in ``html``, you can also rename the folder instead of deleting it.
-
 .. code-block:: console
 
- [isabell@stardust isabell]$ rm -rf html
+ [isabell@stardust isabell]$ rm -f html/nocontent.html; rmdir html
  [isabell@stardust isabell]$ ln -s /var/www/virtual/$USER/shopware/public html
  [isabell@stardust isabell]$
 
@@ -94,15 +91,22 @@ isabell_shopware.
 Configuration
 =============
 
-PHP Memory
-----------
-
-In order to increase the memory limit of php to the recommended value of 512 MB, go to
-``$HOME/etc/php.d/``, create ``memory_limit.ini`` and add the following line:
+To configure PHP according to the `Shopware system requirements`_, go to
+``$HOME/etc/php.d/``, create ``shopware.ini`` and add the following lines:
 
 ::
 
  memory_limit = 512M
+ apc.enable_cli = 1
+ opcache.memory_consumption = 256
+
+.. note:: After setting these PHP parameters, restart PHP to activate the changes
+
+.. code-block:: console
+
+ [isabell@stardust ~]$ uberspace tools restart php
+ Your php configuration has been loaded.
+ [isabell@stardust ~]$
 
 Updates
 =======
@@ -112,12 +116,13 @@ Updates
 
 .. _Shopware: https://www.shopware.com
 .. _Shopware website: https://www.shopware.com/en/download/
+.. _Shopware system requirements: https://docs.shopware.com/en/shopware-6-en/first-steps/system-requirements
 .. _Symfony: https://symfony.com
 .. _Vue.js: https://vuejs.org
 .. _feed: https://github.com/shopware/platform/releases.atom
 
 ----
 
-Tested with Shopware 6.0.0-ea2 , Uberspace 7.3.8.1
+Tested with Shopware 6.4.17.2, PHP 8.1 and Uberspace 7.13.0
 
 .. author_list::

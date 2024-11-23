@@ -38,15 +38,15 @@ Roundcube is released under the GNU General Public License_ version 3 or any lat
 Prerequisites
 =============
 
-We're using :manual:`PHP <lang-php>` in the stable version 7.3:
+We're using :manual:`PHP <lang-php>` in the stable version 8.2:
 
 ::
 
- [isabell@stardust ~]$ uberspace tools version use php 7.3
- Selected PHP version 7.3
+ [isabell@stardust ~]$ uberspace tools version use php 8.2
+ Selected PHP version 8.2
  The new configuration is adapted immediately. Patch updates will be applied automatically.
  [isabell@stardust ~]$ uberspace tools version show php
- Using 'PHP' version: '7.3'
+ Using 'PHP' version: '8.2'
  [isabell@stardust ~]$
 
 If you want to use your Roundcube with your own domain you need to setup your domain first:
@@ -70,7 +70,7 @@ Installation
  :emphasize-lines: 2
 
  [isabell@stardust ~]$ cd /var/www/virtual/$USER/html/
- [isabell@stardust html]$ wget https://github.com/roundcube/roundcubemail/releases/download/1.4.3/roundcubemail-1.4.3-complete.tar.gz
+ [isabell@stardust html]$ wget https://github.com/roundcube/roundcubemail/releases/download/1.6.5/roundcubemail-1.6.5-complete.tar.gz
  [isabell@stardust html]$ tar xf roundcubemail-*.tar.gz --strip-components=1
  [isabell@stardust html]$ rm -r roundcubemail-*.tar.gz
  [isabell@stardust html]$
@@ -194,7 +194,7 @@ Add the following to your ``~/html/config/config.inc.php``:
 .. code-block:: ini
 
  $rcmail_config['username_domain'] = 'domain.tld';
- $rcmail_config['force_username_domain'] = true;
+ $rcmail_config['username_domain_forced'] = true;
 
 All domains in the logins will be replaced by the specified domain above.
 If you want to specify *multiple domains* you'll have to create an array like the following:
@@ -236,7 +236,7 @@ Get the latest version
  :emphasize-lines: 2
 
  [isabell@stardust ~]$ cd /var/www/virtual/$USER/
- [isabell@stardust isabell]$ wget https://github.com/roundcube/roundcubemail/releases/download/1.4.3/roundcubemail-1.4.3-complete.tar.gz
+ [isabell@stardust isabell]$ wget https://github.com/roundcube/roundcubemail/releases/download/1.6.5/roundcubemail-1.6.5-complete.tar.gz
  [isabell@stardust isabell]$ tar xf roundcubemail-*.tar.gz
  [isabell@stardust isabell]$
 
@@ -252,8 +252,8 @@ Update your existing Roundcube installation
 .. code-block:: console
  :emphasize-lines: 1,2,3
 
- [isabell@stardust ~]$ cd /var/www/virtual/$USER/roundcubemail-1.4.3/
- [isabell@stardust roundcubemail-1.4.3]$ bin/installto.sh /var/www/virtual/$USER/html
+ [isabell@stardust ~]$ cd /var/www/virtual/$USER/roundcubemail-1.6.5/
+ [isabell@stardust roundcubemail-1.6.5]$ bin/installto.sh /var/www/virtual/$USER/html
  ? Upgrading from 1.4.2. Do you want to continue? (y/N)
  ✔ Copying files to target location..../
  ℹ NOTICE: JavaScript dependencies installation skipped.
@@ -263,7 +263,7 @@ Update your existing Roundcube installation
  ✔ This instance of Roundcube is up-to-date.
  ✔ Have fun!
  ✔ All done.
- [isabell@stardust roundcubemail-1.4.3]$
+ [isabell@stardust roundcubemail-1.6.5]$
 
 Finishing updating
 ^^^^^^^^^^^^^^^^^^
@@ -273,7 +273,7 @@ Remove the temporary folder as well as the archive after finishing the update pr
 .. code-block:: console
  :emphasize-lines: 1
 
- [isabell@stardust roundcubemail-1.4.3 ]$ cd /var/www/virtual/$USER/
+ [isabell@stardust roundcubemail-1.6.5 ]$ cd /var/www/virtual/$USER/
  [isabell@stardust ]$ rm -r roundcubemail-*
  [isabell@stardust ]$
 
@@ -291,6 +291,6 @@ Via FTP + Installer
 
 ----
 
-Tested with Roundcube 1.4.3, Uberspace 7.5.0.0
+Tested with Roundcube 1.6.5, Uberspace 7.15.6
 
 .. author_list::
